@@ -5,16 +5,7 @@
         <xyHeader></xyHeader>
       </div>
       <div id="xybody">
-        <div id="xynavi">
-          <ul>
-            <li>
-              <router-link to="/"><button>home</button></router-link>
-            </li>
-            <li>
-              <router-link to="/hello"><button>hello</button></router-link>
-            </li>
-          </ul>
-        </div>
+       <xyNavi></xyNavi>
         <div id="xycontent">
           <router-view></router-view>
         </div>
@@ -30,6 +21,7 @@
 <script>
   import XyHeader from './components/Header'
   import XyLogin  from './components/Login'
+  import XyNavi   from './components/Navi'
   import { mapGetters } from 'vuex'
 
   export default {
@@ -45,7 +37,7 @@
           logined: "getLogined"
     }),
     components: {
-      XyHeader,XyLogin
+      XyHeader,XyLogin,XyNavi
     }
   }
 
