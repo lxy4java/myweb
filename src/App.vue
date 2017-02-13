@@ -1,0 +1,115 @@
+<template>
+  <div id="app">
+    <div  v-if="logined">
+       <div id="xyheader">
+        <xyHeader></xyHeader>
+      </div>
+      <div id="xybody">
+        <div id="xynavi">
+          <ul>
+            <li>
+              <router-link to="/"><button>home</button></router-link>
+            </li>
+            <li>
+              <router-link to="/hello"><button>hello</button></router-link>
+            </li>
+          </ul>
+        </div>
+        <div id="xycontent">
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      <xyLogin></xyLogin>
+    </div>
+  </div>
+</template>
+
+
+<script>
+  import XyHeader from './components/Header'
+  import XyLogin  from './components/Login'
+  import { mapGetters } from 'vuex'
+
+  export default {
+    name: 'app',
+    data() {
+      return { 
+        
+        }
+    },
+    computed:
+       /***每个属性对应属性名所代表的方法，当dispatch发生时会调用computed方法**/
+      mapGetters({
+          logined: "getLogined"
+    }),
+    components: {
+      XyHeader,XyLogin
+    }
+  }
+
+</script>
+
+<style>
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+  
+  #xycontent {
+    top: 47px;
+    width: 83%;
+    position: absolute;
+    right: 2px;
+    background-color: green;
+    margin-top: 0px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  
+  #xynavi {
+    top: 47px;
+    position: fixed;
+    left: 0px;
+    padding-left: 0px;
+    width: 17%;
+  }
+  
+  #xynavi li button {
+    padding-left: 0px;
+    height: 36px;
+    width: 100%;
+    background-color: blue;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+  }
+  
+  #xynavi ul {
+    padding-left: 0px;
+    margin-top: 0px;
+  }
+  
+  #xynavi ul li {
+    width: 100%;
+    list-style: none;
+  }
+  
+  #xyheader {
+    left: 0px;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 47px;
+    background: gold;
+    z-index: 999;
+  }
+</style>
