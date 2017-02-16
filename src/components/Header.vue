@@ -20,6 +20,7 @@
 <style scoped>
     h1,
     h2 {
+        text-align: center;
         margin: auto;
         font-weight: normal;
     }

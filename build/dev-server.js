@@ -64,6 +64,12 @@ devMiddleware.waitUntilValid(function () {
   console.log('> Listening at ' + uri + '\n')
 })
 
+/************************既然用express就在这里写测试后台吧*********************************************** */
+
+
+
+
+/***********************************似乎并不知道怎么写，哎。********************************************************** */
 module.exports = app.listen(port, function (err) {
   if (err) {
     console.log(err)

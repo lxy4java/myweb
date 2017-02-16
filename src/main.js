@@ -25,10 +25,17 @@ const router = new VueRouter({
 })
 
 
+function routers(){
+console.log("可以ajax请求后台获取");
+return router;
+
+}
+
+
 new Vue({
   el: '#app',
   template: '<App/>',
-  router: router,
+  router: routers(),
   store,
   render: h => h(App)
 })
