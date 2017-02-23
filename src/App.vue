@@ -64,34 +64,6 @@
     border-bottom-right-radius: 5px;
   }
   
-  #xynavi {
-    top: 47px;
-    position: fixed;
-    left: 0px;
-    padding-left: 0px;
-    width: 17%;
-  }
-  
-  #xynavi li button {
-    padding-left: 0px;
-    height: 36px;
-    width: 100%;
-    background-color: blue;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
-  }
-  
-  #xynavi ul {
-    padding-left: 0px;
-    margin-top: 0px;
-  }
-  
-  #xynavi ul li {
-    width: 100%;
-    list-style: none;
-  }
   
   #xyheader {
     left: 0px;
