@@ -15,10 +15,10 @@
           -->
 
       <li v-for="item in items">
-        <button v-for="(val,key) in item" v-on:click="hideshow($event)">{{key}}</button>
+        <button v-for="(val,key) in item" v-on:click="hideshow($event)" class="navibtn">{{key}}</button>
          <ul style="display:none;"  v-for="val in item" >
             <li  v-for="obj in val">
-                  <router-link :to="obj.url"><button>{{obj.name}}</button></router-link>
+                  <router-link :to="obj.url"><button class="navisub">{{obj.name}}</button></router-link>
             </li>
          </ul>
       </li>
@@ -72,7 +72,7 @@
     width: 17%;
   }
   
-  #xyNavi li button {
+ .navibtn {
     padding-left: 0px;
     height: 36px;
     width: 100%;
@@ -91,5 +91,15 @@
   #xyNavi ul li {
     width: 100%;
     list-style: none;
+  }
+  .navisub {
+    padding-left: 0px;
+    height: 36px;
+    width: 100%;
+    background-color:yellow;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
   }
 </style>
