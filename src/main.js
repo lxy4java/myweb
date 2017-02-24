@@ -7,7 +7,10 @@ import Hello from './components/Hello'
 import Home from './components/Home'
 /**store 不能大写*/ 
 import store from './vuex/store'
-/* eslint-disable no-new */
+/* vue-resource 的引入 */
+import VueResource from 'vue-resource'
+
+Vue.use(VueResource)
 
 Vue.use(VueRouter)
 

@@ -16,11 +16,11 @@
 
       <li v-for="item in items">
         <button v-for="(val,key) in item" v-on:click="hideshow($event)" class="navibtn">{{key}}</button>
-         <ul style="display:none;"  v-for="val in item" >
-            <li  v-for="obj in val">
-                  <router-link :to="obj.url"><button class="navisub">{{obj.name}}</button></router-link>
-            </li>
-         </ul>
+        <ul style="display:none;" v-for="val in item">
+          <li v-for="obj in val">
+            <router-link :to="obj.url"><button class="navisub">{{obj.name}}</button></router-link>
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
@@ -31,32 +31,37 @@
     name: 'xyNavi',
     data() {
       return {
-        items: [{
-          'first': [{ "url": "/hello", "name": "hello" }, { "url": "/", "name": "home" }]
-        }, {
-          'second': [{ "url": "/hello", "name": "hello" }, { "url": "/", "name": "home" }]
-        }, {
-          'third': [{ "url": "/hello", "name": "hello" }, { "url": "/", "name": "home" }]
-        }, {
-          'fourth': []
-        }]
+        items: []
       }
     },
+    created: function () {
+      console.log("#############################");
+      this.getRouters();
+    },
     methods: {
-        hideshow:function(event){
-          /* 访问原生dom,vue不鼓励这么做,
-          console.log(event.target.tagName);
-          console.log(event.target);
-          console.log(event.target.nextElementSibling); 
-          */
-          var styles= event.target.nextElementSibling.style.display;
-          if(styles=='none'){
-            event.target.nextElementSibling.style.display="inline";
-          }else{
-            event.target.nextElementSibling.style.display="none";
-          }
-        
+      hideshow: function (event) {
+        /* 访问原生dom,vue不鼓励这么做,
+        console.log(event.target.tagName);
+        console.log(event.target);
+        console.log(event.target.nextElementSibling); 
+        */
+        var styles = event.target.nextElementSibling.style.display;
+        if (styles == 'none') {
+          event.target.nextElementSibling.style.display = "inline";
+        } else {
+          event.target.nextElementSibling.style.display = "none";
         }
+
+      },
+      getRouters: function () {
+        this.$http.get("/rest/routers")
+          .then((response) => {
+            this.$set('items', response.data)
+          })
+          .catch(function (response) {
+            console.log(response)
+          })
+      }
     }
   }
 
@@ -72,7 +77,7 @@
     width: 17%;
   }
   
- .navibtn {
+  .navibtn {
     padding-left: 0px;
     height: 36px;
     width: 100%;
@@ -92,11 +97,12 @@
     width: 100%;
     list-style: none;
   }
+  
   .navisub {
     padding-left: 0px;
     height: 36px;
     width: 100%;
-    background-color:yellow;
+    background-color: yellow;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
     border-bottom-left-radius: 7px;
