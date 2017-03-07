@@ -3,7 +3,7 @@ var app = express();
 
 app.get('/routers', function(req, res) {
 
-  res.type('application/json');  
+  //res.type('application/json');  
   res.send('[{"first": [{ "url": "/hello", "name": "hello" }, { "url": "/", "name": "home" }]}, {"second": [{ "url": "/hello", "name": "hello" }, { "url": "/", "name": "home" }]}, {"third": [{ "url": "/hello", "name": "hello" }, { "url": "/", "name": "home" }]}, {"fourth": []}]');
 });
 

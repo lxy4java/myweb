@@ -56,7 +56,9 @@
       getRouters: function () {
         this.$http.get("/rest/routers")
           .then((response) => {
-            this.$set('items', response.data)
+            console.log(response.data);
+            //tthis.$set('items', response.data) 不行,为啥set里加个this可以,研究中
+            this.$set(this,'items', response.data)
           })
           .catch(function (response) {
             console.log(response)
