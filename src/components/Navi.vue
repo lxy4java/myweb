@@ -31,16 +31,11 @@
     name: 'xyNavi',
     data() {
       return {
-        items: [{
-          'first': [{ "url": "/hello", "name": "hello" }, { "url": "/", "name": "home" }]
-        }, {
-          'second': [{ "url": "/hello", "name": "hello" }, { "url": "/", "name": "home" }]
-        }, {
-          'third': [{ "url": "/hello", "name": "hello" }, { "url": "/", "name": "home" }]
-        }, {
-          'fourth': []
-        }]
+        items: []
       }
+    },
+    created: function () {
+      this.getNavi();
     },
     methods: {
         hideshow:function(event){
@@ -56,6 +51,17 @@
             event.target.nextElementSibling.style.display="none";
           }
         
+        },
+        getNavi:function(){
+          this.$http.get('/rest/navis')
+            .then((response) => {
+            
+            this.$set(this,'items', response.data)
+          })
+            .catch(function (error) {
+             console.log(error);
+          });
+
         }
     }
   }

@@ -8,9 +8,10 @@ import Home from './components/Home'
 /**store 不能大写*/ 
 import store from './vuex/store'
 /* eslint-disable no-new */
+import axios from 'axios'
 
 Vue.use(VueRouter)
-
+Vue.prototype.$http = axios
 
 
 const routes = [{
