@@ -5,7 +5,7 @@ import App from './App'
 import VueRouter from 'vue-router'
 import Hello from './components/Hello'
 import Home from './components/Home'
-/**store 不能大写*/ 
+/**store 不能大写*/
 import store from './vuex/store'
 /* eslint-disable no-new */
 import axios from 'axios'
@@ -21,22 +21,18 @@ const routes = [{
   path: '/hello',
   component: Hello
 }]
+
+
 const router = new VueRouter({
   routes
 })
 
-
-function routers(){
-console.log("可以ajax请求后台获取");
-return router;
-
-}
-
-
 new Vue({
   el: '#app',
   template: '<App/>',
-  router: routers(),
+  router: router,
   store,
   render: h => h(App)
 })
+
+
