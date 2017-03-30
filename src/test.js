@@ -13,6 +13,12 @@ app.get('/routers', function(req, res) {
   res.send("[{ path: '/',component: Home}, {path: '/hello',component: Hello}]");
 });
 
+app.get('/table', function(req, res) {
+
+  //res.type('application/json');  
+  res.send('{"title": ["name","age","gender"] , "data": [["lxy","28","male"],["大公","666","male"]]}');
+});
+
 app.listen(8088, function (err) {
   if (err) {
     console.log(err)

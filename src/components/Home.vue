@@ -1,17 +1,23 @@
 <template>
   <div class="home">
-   <h1>{{msg}}</h1>
+    <xyTable url="/rest/table"></xyTable>
   </div>
 </template>
 
 <script>
+import XyTable  from './Table'
+
+
 export default {
   name: 'home',
   data () {
     return {
       msg: 'Welcome to my home App'
     }
-  }
+  },
+ components: {
+      XyTable
+ }
 }
 </script>
 
