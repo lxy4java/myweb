@@ -2,10 +2,10 @@
   <div class="xyTable">
       <table>
             <tr>
-            <th v-for="tt in title">{{tt}}</th>
+            <th v-for="tt in title">{{tt}}</th><th>Delete</th>
             </tr>
             <tr v-for="dt in data">
-               <td v-for="d in dt">{{d}}</td>
+               <td v-for="d in dt">{{d}}</td><td><button v-on:click="mydel(dt[0])" >Delete</button></td>
             </tr>
       </table>
   </div>
@@ -39,6 +39,19 @@ export default {
             .catch(function (error) {
              console.log(error);
           });
+    },
+    mydel:function(name){
+       this.$http.get("/rest/delete?name="+name)
+            .then((response) => {
+            var data =response.data;
+            console.log(data['title'])
+            this.$set(this,'title', data['title']);
+            this.$set(this,'data', data['data'])
+          })
+            .catch(function (error) {
+             console.log(error);
+          });
+
     }
   }
 
