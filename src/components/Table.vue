@@ -2,12 +2,14 @@
   <div class="xyTable">
       <table>
             <tr>
-            <th v-for="tt in title">{{tt}}</th><th>Delete</th>
+            <th v-for="tt in title">{{tt}}</th><th>Delete</th><th>Edit</th>
             </tr>
             <tr v-for="dt in data">
-               <td v-for="d in dt">{{d}}</td><td><button v-on:click="mydel(dt[0])" >Delete</button></td>
+               <td v-for="d in dt">{{d}}</td><td><button v-on:click="mydel(dt[0])" >{{dt[0]}} Delete</button></td>
+               <td><button v-on:click="myedit(dt[0])" >{{dt[0]}} Edit</button></td>
             </tr>
       </table>
+        <router-link to="/service/add" tag="button">Create</router-link>
   </div>
 </template>
 
@@ -32,7 +34,7 @@ export default {
        this.$http.get(this.url)
             .then((response) => {
             var data =response.data;
-            console.log(data['title'])
+            console.log(data['data'])
             this.$set(this,'title', data['title']);
             this.$set(this,'data', data['data'])
           })
@@ -44,8 +46,19 @@ export default {
        this.$http.get("/rest/delete?name="+name)
             .then((response) => {
             var data =response.data;
-            console.log(data['title'])
-            this.$set(this,'title', data['title']);
+            console.log(data['data'])
+            this.$set(this,'data', data['data'])
+          })
+            .catch(function (error) {
+             console.log(error);
+          });
+
+    },
+    myedit:function(name){
+       this.$http.get("/rest/delete?name="+name)
+            .then((response) => {
+            var data =response.data;
+            console.log(data['data'])
             this.$set(this,'data', data['data'])
           })
             .catch(function (error) {
@@ -53,6 +66,7 @@ export default {
           });
 
     }
+
   }
 
 }

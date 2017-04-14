@@ -5,6 +5,7 @@ import App from './App'
 import VueRouter from 'vue-router'
 import Hello from './components/Hello'
 import Home from './components/Home'
+import Createdit from './components/Createdit'
 /**store 不能大写*/
 import store from './vuex/store'
 /* eslint-disable no-new */
@@ -20,6 +21,9 @@ const routes = [{
 }, {
   path: '/hello',
   component: Hello
+},{
+  path: '/service/add',
+  component: Createdit
 }]
 
 
