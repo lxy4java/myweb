@@ -53,9 +53,32 @@ app.post('/add', function (req, res) {
 });
 
 app.post('/edit', function (req, res) {
+  var usr =req.body;
+  var name= req.body.name;
+  console.log(name);
+  //res.type('application/json');
+  var data = tabledata['data'];
+  for (var i = 0; i < data.length; i++) {
+      if(data[i][0]==name){
+        tabledata['data'].splice(i,1,[usr.name,usr.age,usr.gender]);
+      }
+  }
+  res.send("success");
+});
 
-  //res.type('application/json');  
-  res.send(tabledata);
+app.post('/getByName', function (req, res) {
+  var name= req.body.name;
+  console.log(name);
+  var usrs=tabledata.data;
+  console.log(usrs);
+  var usr=[];
+  for(var i=0;i<usrs.length;i++){
+    console.log(usrs[i][0]);
+    if(usrs[i][0]==name){
+       usr=usrs[i];
+    }
+  }
+   res.send(usr);
 });
 app.listen(8088, function (err) {
   if (err) {

@@ -24,6 +24,9 @@ const routes = [{
 },{
   path: '/service/add',
   component: Createdit
+},{
+  path: '/service/edit/:name',
+  component: Createdit
 }]
 
 

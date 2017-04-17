@@ -34,7 +34,7 @@ export default {
        this.$http.get(this.url)
             .then((response) => {
             var data =response.data;
-            console.log(data['data'])
+            //console.log(data['data'])
             this.$set(this,'title', data['title']);
             this.$set(this,'data', data['data'])
           })
@@ -46,7 +46,7 @@ export default {
        this.$http.get("/rest/delete?name="+name)
             .then((response) => {
             var data =response.data;
-            console.log(data['data'])
+            //console.log(data['data'])
             this.$set(this,'data', data['data'])
           })
             .catch(function (error) {
@@ -55,16 +55,7 @@ export default {
 
     },
     myedit:function(name){
-       this.$http.get("/rest/delete?name="+name)
-            .then((response) => {
-            var data =response.data;
-            console.log(data['data'])
-            this.$set(this,'data', data['data'])
-          })
-            .catch(function (error) {
-             console.log(error);
-          });
-
+      this.$router.push("/service/edit/"+name);
     }
 
   }
