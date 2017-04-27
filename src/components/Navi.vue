@@ -21,7 +21,7 @@ export default {
   name: 'xyNavi',
   data () {
     return {
-      items: [{"url":"/hello","name":"hello"},{"url":"/","name":"home"}]
+      items: [{"url":"/hello","name":"hello"},{"url":"/","name":"home"},{"url":"/mkd","name":"editor"}]
     }
   }
 }

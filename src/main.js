@@ -5,8 +5,10 @@ import App from './App'
 import VueRouter from 'vue-router'
 import Hello from './components/Hello'
 import Home from './components/Home'
+import Markdown from './components/Markdown'
 /**store 不能大写*/ 
 import store from './vuex/store'
+
 /* eslint-disable no-new */
 
 Vue.use(VueRouter)
@@ -19,6 +21,9 @@ const routes = [{
 }, {
   path: '/hello',
   component: Hello
+}, {
+  path: '/mkd',
+  component: Markdown
 }]
 const router = new VueRouter({
   routes
