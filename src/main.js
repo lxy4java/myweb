@@ -7,18 +7,23 @@ import Hello from './components/Hello'
 import Home from './components/Home'
 /**store 不能大写*/ 
 import store from './vuex/store'
+import NotFund from './components/NotFund'
+ 
 /* eslint-disable no-new */
 
 Vue.use(VueRouter)
 
 
-
+/* 遇到无法匹配的路由跳转到 404 页面，然后定向到百度  */
 const routes = [{
   path: '/',
   component: Home
 }, {
   path: '/hello',
   component: Hello
+},{
+  path: '*',
+  component: NotFund
 }]
 const router = new VueRouter({
   routes
