@@ -18,45 +18,43 @@
 
 <script>
 export default {
-  name: 'xyNavi',
-  data () {
+  name: "xyNavi",
+  data() {
     return {
-      items: [{"url":"/hello","name":"hello"},{"url":"/","name":"home"}]
-    }
+      items: [{ url: "/hello", name: "hello" }, { url: "/", name: "home" }]
+    };
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 #xyNavi {
-    top: 47px;
-    position: fixed;
-    left: 0px;
-    padding-left: 0px;
-    width: 17%;
-  }
-  
-  #xyNavi li button {
-    padding-left: 0px;
-    height: 36px;
-    width: 100%;
-    background-color: blue;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
-  }
-  
-  #xyNavi ul {
-    padding-left: 0px;
-    margin-top: 0px;
-  }
-  
-  #xyNavi ul li {
-    width: 100%;
-    list-style: none;
-  }
+  top: 47px;
+  position: fixed;
+  left: 0px;
+  padding-left: 0px;
+  width: 17%;
+}
 
+#xyNavi li button {
+  padding-left: 0px;
+  height: 36px;
+  width: 100%;
+  background-color: blue;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+#xyNavi ul {
+  padding-left: 0px;
+  margin-top: 0px;
+}
+
+#xyNavi ul li {
+  width: 100%;
+  list-style: none;
+}
 </style>
